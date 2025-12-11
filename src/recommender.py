@@ -24,3 +24,15 @@ def load_and_merge_data(movies+file, credits_file):
     #keep only relevant columns
     df = df[['id', 'title', 'genres', 'keywords', 'cast', 'crew', 'overview']]
     return df
+
+#Helper function to safely extract the 'name' value from nested JSON-like strings
+def extract_names(obj):
+    """Converts a string of JSON list/dict to a list of names"""
+
+    L = []
+    #safely convert string representation of a list/dict to an actual list dict
+    for i in ast.literal_eval(obj):
+        L.append(i['name'])
+    return L
+
+
