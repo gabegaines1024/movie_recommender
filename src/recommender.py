@@ -35,4 +35,13 @@ def extract_names(obj):
         L.append(i['name'])
     return L
 
+#function to fetch director name
+def get_director(obj):
+    L = []
+    for i in ast.literal_eval(obj):
+        if i['job'] == 'Director':
+            L.append(i['name'])
+            break
+    return L
+
 
